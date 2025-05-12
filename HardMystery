@@ -1,0 +1,64 @@
+import java.util.ArrayList;
+
+public class HardMystery extends Mystery{
+    private ArrayList<Human> humansR2;
+    private ArrayList<Prop> propsR2;
+
+  
+    public HardMystery(){
+        this.humansR2=humansR2;
+        this.propsR2=propsR2;
+    }
+
+    public String interrogate(String room, Human j){
+        if(room.equals("Ballroom")){
+        if(j==super.getMurderer()){
+            return "Backstory: " + super.getMurderer().getBackstory()+ "and their alibi: " + super.getMurderer().getAlibi();
+        }
+        for(int i =0; i<super.getHumansR1().size();i++){
+            if(super.getHumansR1().get(i)==j){
+               return "Backstory: " + super.getHumansR1().get(i).getBackstory() + "and their alibi: " + super.getHumansR1().get(i).getAlibi();
+            }
+        }
+        return"There is no one here to interrogate";
+    }
+        if(room.equals("Dining Room")){
+            if(j==super.getMurderer()){
+                return "Backstory: " + super.getMurderer().getBackstory()+ "and their alibi: " + super.getMurderer().getAlibi();
+            }
+            for(int i =0; i<humansR2.size();i++){
+                if(humansR2.get(i)==j){
+                   return "Backstory: " + humansR2.get(i).getBackstory() + "and their alibi: " + humansR2.get(i).getAlibi();
+                }
+            }
+            return"There is no one here to interrogate";
+    }
+    return"There is no one here to interrogate";
+}
+
+public String inspectProp(String room, Prop p) {
+    if (room.equals("Ballroom")) {
+        // Inspecting props in the Ballroom
+        for (int i = 0; i < super.getPropsR1().size(); i++) {
+            if (super.getPropsR1().get(i) == p) {
+                return "Prop found: " + super.getPropsR1().get(i).inspect();
+            }
+        }
+        return "There is no relevant prop to inspect in the Ballroom.";
+
+    }
+
+    if (room.equals("Dining Room")) {
+        // Inspecting props in the Dining Room
+        for (int i = 0; i < propsR2.size(); i++) {
+            if (propsR2.get(i) == p) {
+                return "Prop found: " + propsR2.get(i).getName() +
+                       " - " + propsR2.get(i).inspect();
+            }
+        }
+        return "There is no relevant prop to inspect in the Dining Room.";
+    }
+
+    return "Prop not found";
+}
+}
