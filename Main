@@ -3,17 +3,9 @@ import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
+
 public class Main {
 
-   public static void delay(int seconds){
-        seconds = seconds*1000;
-        try{
-            Thread.sleep(seconds);
-        }
-        catch (InterruptedException e){
-
-        }
-    }
 
    public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
@@ -54,7 +46,7 @@ public class Main {
       flushScreen();
       System.out.println("You sit down for dinner, reminiscing over all the memories you had with these people in college. You knew Gustave worked for Clarissa now, although according to what she told you, his tanturms had not ceased, and in exchange for the good food, she had to deal with him now");
       System.out.println("The dinner was great, but the sinking feeling in your stomach worsened when");
-      delay(3);
+      delay(1);
 
       delay(2);
       System.out.println("the lights flickered off, leaving everyone in a panic. You heard dishes fall of the table, and then chaos erupted.");
@@ -74,28 +66,34 @@ public class Main {
       flushScreen();
       System.out.println("Now you sit in a chair far away from the heiress, everyone around you. There was no reception, no way to get out in this weather. You were stuck, but with a mystery");
       delay(3);
-      System.out.println("Now so you stand up, now assuming the role of a detective");
+      System.out.println("Nad so you stand up, now assuming the role of a detective");
       delay(3);
       System.out.println("A rush of revenge fills your chest as you swear to the comapny that you will sovle the murder, if its the last thing you do");
       System.out.println("Buckle in doctor its about to be a long ride.");
+      ArrayList<String> hints = new ArrayList<>();
+      hints.add("A witness reports hearing a heated argument between Victor Hale and the Heiress an hour before the party, about her decision to cut him out of her will.");
+      hints.add("A cufflink with the initials 'V.H.' was found near the Heiress's plate.");
+      hints.add("Victor Hale was seen lurking around the kitchen area just before the Heiress’s death, even though he was not supposed to be there.");
+
+      Phone iphone = new Phone(hints, 2);
       boolean guessed=false;
       while(guessed==false){
       System.out.println("Would you like \n1: inspect a prop, \n2:guess who the murderer is\n and remember-since you chose the easy level, you will a steady flow of hints until you run out.");
           r = sc.nextInt();
           EasyMystery theGame=ifEasy();
-      if(r==1){
-         System.out.println("Which prop would you like to inspect?");
-         System.out.println(theGame.getPropsR1());
-         r= sc.nextInt();
-        System.out.println(theGame.inspectProp(theGame.getPropsR1().get(r-1)));
-       }
+    if(r==1){
+      System.out.println("Which prop would you like to inspect?");
+            System.out.println(theGame.getPropsR1());
+            r= sc.nextInt();
+           System.out.println(theGame.inspectProp(theGame.getPropsR1().get(r-1)));
+    }
       else if(r==2){
         System.out.println("who is the murderer?");
         System.out.println("Is it\n 1:the Businessman, Victor \n 2:the Chef, Gustave \n 3:the butler");
         r=sc.nextInt();
         String hi="";
         if(r==1){
-          hi="businessman";
+          hi="Victor Hale";
         }
         else if(r==2){
           hi="chef";
@@ -138,6 +136,7 @@ public class Main {
       hi.getPropsR1().add(new Prop("Peanuts found near Heiress's plate", null, "The Heiresss, deathly allergic to peanuts, would die if she accidentally ate it"));
       hi.getPropsR1().add(new Prop("Poisoned pills", null, "poisoned pills found in the Heiress's food"));
       hi.setHumansR1(new ArrayList<Human>());
+      hi.getPropsR1().add(new Prop("Loan Note Found", null, "A note found in Victor Hale’s pocket detailing a large loan he recently took out, with a deadline that coincides with the Heiress’s death."));
       hi.getHumansR1().add(new Human("Victor Hale", null, "Victor Hale became rich after he successfully founded a makeup brand inspired by his childhood sweetheart", "businessman"));
       hi.getHumansR1().add(new Human("Elias Graves", null, "The Grave Family has been working for the Ainsworth family for several generations, through thick and thin", "butler"));
       hi.getHumansR1().add(new Human("Gustave Morale", null, "Gustave Morale, famous chef, was all to happy to be the Ainsworth family chef upon seeing the large staff and kitchen", "chef"));
@@ -149,6 +148,18 @@ public static void flushScreen(){
   System.out.print("\033[H\033[2J");
   //\033[H\033[2J
   System.out.flush();
+}
+
+
+public static void delay(int seconds){
+  seconds = seconds*1000;
+  try{
+      Thread.sleep(seconds);
+  }
+  catch (InterruptedException e){
+
+
+  }
 }
 
 public static String getRandomString(String[] array) {
