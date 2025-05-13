@@ -2,14 +2,13 @@ import java.util.ArrayList;
 
 public class Mystery{
 private Human murderer;
-private ArrayList<Human> humansR1;
 private ArrayList<Prop> propsR1;
 
 
 public Mystery() {
-   this.propsR1 = new ArrayList<>();
-   this.humansR1 = new ArrayList<>();
-   this.murderer= new Human();
+  this.murderer = setMurderer();     
+   this.humansR1 = setHumansR1();    
+   this.propsR1 = setPropsR1();   
 }
  public boolean guessMurderer(String hi){
     if(hi.equals(murderer.getName())){
@@ -17,6 +16,88 @@ public Mystery() {
     }
     return false;
  }
+ public ArrayList<Human> setHumansR1(){
+    Human businessman = new Human("Victor Hale", "", 
+        "Victor Hale became rich after he successfully founded a makeup brand inspired by his childhood sweetheart");
+      Human butler = new Human ("Elias Graves", "", "The Grave Family has been working for the Ainsworth family for several generations, through thick and thin");
+        Human chef = new Human("Gustave Morales", "", "Gustave Morale, famous chef, was all too happy to be the Ainsworth family chef upon seeing the large staff and kitchen");
+   ArrayList<Human> humans = new ArrayList<>();
+    if (murderer.getName().equals("Victor Hales")){
+      humans.add(murderer);
+      humans.add(chef);
+      humans.add(butler);
+   }
+   else if (murderer.getName().equals("Elias Graves")){
+      humans.add(murderer);
+      humans.add(businessman);
+      humans.add(chef);
+   }
+   else{
+humans.add(murderer);
+      humans.add(businessman);
+      humans.add(butler);
+   }
+   return humans;
+ }
+ public ArrayList<Prop> setPropsR1(){
+   
+   ArrayList<Prop> props = new ArrayList<>();
+   if (murderer.getName().equals("Victor Hales")){
+      props.add(new Prop("Voicemail", null, "Voicemail from Heiress to her Lawyer, 30 minutes before the party"));
+      props.add(new Prop("Shredded Letter in the Fireplace", null, 
+        "A partially burned legal letter from the Heiress’ lawyer found in the fireplace. It mentions changes to her will, cutting the businessman out entirely."));
+      props.add(new Prop("Document of Bankruptcy", null, "The Businessman has filed for bankruptcy"));
+      props.add(new Prop("Family tree drawing in the living room", null, 
+       "Lord Percival Ainsworth (deceased) ── Helena Ainsworth (née DuMont) (deceased)\n" +
+            "                      │\n" +
+            "      ┌──────────────┴──────────────┐\n" +
+            "      │                             │\n" +
+            "Beatrice Lysander (Age: 55)   Octavia Ainsworth (Age: 65)\n" +
+            "      │                             │\n" +
+            "      └── Clarissa Ainsworth (Age: 25)  ── Amelia Hale (Age: 45)\n" +
+            "                             │\n" +
+            "                             └── Victor Hale (Age: 25)"));
+      props.add(new Prop("Voicemail from the Butler to a suspicious number", null, 
+        "The voicemail says, \"It’ll be done tonight. After dessert.\""));
+      props.add(new Prop("Wine Delivery Cancellation", null, 
+        "A call from the winery explaining that due to the weather, the wine delivery, after dessert, would not be possible"));
+      props.add(new Prop("Peanuts found near Heiress's plate", null, 
+        "The Heiress, deathly allergic to peanuts, would die if she accidentally ate them. It is a genetic condition passed on maternally"));
+      props.add(new Prop("Rashes on Victor's hands", "", "Victor has small rashes on his hands"));
+     
+   }
+   else if (murderer.getName().equals("Gustave Morales")){
+      props.add(new Prop("Note found near body", "", "A crumpled recipe card is found on the floor beneath the heiress’s chair. It contains the exact ingredients for the main course she ate that night, with a small note in the chef's handwriting saying, 'For her, make it extra special.' The last part is scribbled out hastily, as if someone realized the mistake too late."));
+      props.add(new Prop("Distinct smell", "", "someone notes the distinct smell of almonds coming from the chef"));
+      props.add(new Prop("Heiress' plate", "", "upon closer look the heiress' plate is made of plastic, as are her utensils"));
+      props.add(new Prop("stain", "null", "suspicious stain on butler's clothes"));
+      props.add(new Prop("Butler's hand movements", "", "butler's hands keep shaking, a diagnosis of Parkinson's"));
+   }
+   else{
+   props.add(new Prop("loose floorboard", "", "A loose floorboard is slightly ajar behind the sideboard, hasitly shoved into place, revealing a small empty vial."));
+   props.add(new Prop("butler's clothes","", "the butler's normally pristine gloves are fraying, a long thread sticking outs"));
+   props.add(new Prop("receipt", "", "suspicious receipt found for local apothecary under Clarissa's name"));
+   props.add(new Prop("fingerprints-or the lack thereof", "", "no fingerprints found on the glass bottle, not a huge clue, but suggests this whole thing was highly orchestrated"));
+
+   }
+      return props;
+}
+ public Human setMurderer(){
+     Human businessman = new Human("Victor Hale", "", 
+        "Victor Hale became rich after he successfully founded a makeup brand inspired by his childhood sweetheart");
+      Human butler = new Human ("Elias Graves", "", "The Grave Family has been working for the Ainsworth family for several generations, through thick and thin");
+        Human chef = new Human("Gustave Morales", "", "Gustave Morale, famous chef, was all too happy to be the Ainsworth family chef upon seeing the large staff and kitchen");
+      int randomInt = (int)(Math.random() * 3) + 1;
+      if(randomInt==1){
+         return chef;
+      }
+      else if(randomInt==2){
+         return businessman;
+      }
+      else{
+         return butler;
+      }
+   }
  public String interrogate(Human j){
     if(j==murderer){
         return murderer.getBackstory();
@@ -28,41 +109,15 @@ public Mystery() {
     }
     return"Oops! No backstory found!";
  }
- public String inspectProp(Prop j){
-    for(int i =0; i<propsR1.size();i++){
-        if(propsR1.get(i)==j){
-           return propsR1.get(i).inspect();
-        }
-    }
-    return "Oops! Thats not a valid prop number";
+ public String inspectProp(int a){
+    return propsR1.get(a-1).inspect();
+        
  }
- public void setProps(ArrayList<Prop> newProps) {
-   for (Prop p : newProps) {
-       this.propsR1.add(p);
-   }
-}
-
-public Human getMurderer() {
+ public Human getMurd(){
    return murderer;
-}
-
-public void setMurderer(Human murderer) {
-   this.murderer = murderer;
-}
-
-public ArrayList<Human> getHumansR1() {
-   return humansR1;
-}
-
-public void setHumansR1(ArrayList<Human> humansR1) {
-   this.humansR1 = humansR1;
-}
-
-public ArrayList<Prop> getPropsR1() {
-   return propsR1;
-}
-
-public void setPropsR1(ArrayList<Prop> propsR1) {
-   this.propsR1 = propsR1;
-}
+ }
+ public void displayPropsR1(){
+System.out.println("There are " + propsR1.size() + " so please choose a number between this and 1, inclusive");
+System.out.println("This will return the prop to inspect corresponding to that number");
+ }
 }
