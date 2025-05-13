@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Mystery{
 private Human murderer;
 private ArrayList<Prop> propsR1;
-
+private ArrayList<Human> humansR1;
 
 public Mystery() {
   this.murderer = setMurderer();     
@@ -98,12 +98,12 @@ humans.add(murderer);
          return butler;
       }
    }
- public String interrogate(Human j){
-    if(j==murderer){
+ public String interrogate(String hi){
+    if(hi.equals(murderer.getName())){
         return murderer.getBackstory();
     }
     for(int i =0; i<humansR1.size();i++){
-        if(humansR1.get(i)==j){
+        if(humansR1.get(i).getName().equals(hi)){
            return humansR1.get(i).getBackstory();
         }
     }
@@ -120,4 +120,10 @@ humans.add(murderer);
 System.out.println("There are " + propsR1.size() + " so please choose a number between this and 1, inclusive");
 System.out.println("This will return the prop to inspect corresponding to that number");
  }
+public ArrayList<Human> getHumansR1(){
+   return humansR1;
+}
+public ArrayList<Prop> getPropsR1(){
+   return propsR1;
+}
 }
