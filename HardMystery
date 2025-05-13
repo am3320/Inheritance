@@ -6,59 +6,65 @@ public class HardMystery extends Mystery{
 
   
     public HardMystery(){
-        this.humansR2=humansR2;
-        this.propsR2=propsR2;
+        this.humansR2=setHumansR2();
+        this.propsR2=setPropsR2();
     }
-
-    public String interrogate(String room, Human j){
-        if(room.equals("Ballroom")){
-        if(j==super.getMurderer()){
-            return "Backstory: " + super.getMurderer().getBackstory()+ "and their alibi: " + super.getMurderer().getAlibi();
-        }
-        for(int i =0; i<super.getHumansR1().size();i++){
-            if(super.getHumansR1().get(i)==j){
-               return "Backstory: " + super.getHumansR1().get(i).getBackstory() + "and their alibi: " + super.getHumansR1().get(i).getAlibi();
-            }
-        }
-        return"There is no one here to interrogate";
+    public Human setMurderer(){
+        Human murd = new Human("Isabel Moore", "Claims she was in the kitchen, cleaning up dishes and preparing a late-night snack. She didn’t see the chef leave the kitchen at any point during the night.", "Isabel has always been quiet");
+        return murd;
     }
-        if(room.equals("Dining Room")){
-            if(j==super.getMurderer()){
-                return "Backstory: " + super.getMurderer().getBackstory()+ "and their alibi: " + super.getMurderer().getAlibi();
-            }
-            for(int i =0; i<humansR2.size();i++){
-                if(humansR2.get(i)==j){
-                   return "Backstory: " + humansR2.get(i).getBackstory() + "and their alibi: " + humansR2.get(i).getAlibi();
-                }
-            }
-            return"There is no one here to interrogate";
-    }
-    return"There is no one here to interrogate";
+   public ArrayList<Human> setHumansR1(){
+   ArrayList<Human> result = new ArrayList<>();
+   result.add(new Human("Victor Hales","Claims he was speaking with Clarissa about business deals when she suddenly collapsed. He didn’t leave the dining room until he went for help.","Victor Hale became rich after he successfully founded a makeup brand inspired by his childhood sweetheart"));
+   result.add(new Human("Elias Graves", "Claims he was in the dining room the whole night, serving drinks and waiting on the guests. He didn’t leave his post. He heard arguing between Clarissa and someone, but didn’t know who.", "The Grave Family has been working for the Ainsworth family for several generations, through thick and thin"));
+result.add(getMurd());
+return result;
 }
-
-public String inspectProp(String room, Prop p) {
-    if (room.equals("Ballroom")) {
-        // Inspecting props in the Ballroom
-        for (int i = 0; i < super.getPropsR1().size(); i++) {
-            if (super.getPropsR1().get(i) == p) {
-                return "Prop found: " + super.getPropsR1().get(i).inspect();
-            }
-        }
-        return "There is no relevant prop to inspect in the Ballroom.";
-
+    public ArrayList<Human> setHumansR2(){
+    
+        ArrayList<Human> result = new ArrayList<>();
+        result.add(new Human("Lydia Cartwright", "Claims she was sweeping the hallway near the back door. She says she noticed the back door was ajar right before the murder, but no one saw her leave the hallway.", "She is one of the newer maids in the Ainsworth house"));
+        result.add(new Human("Catherine \"Cat\" Rivers", "Was arranging flowers in the parlor. She saw Victor Hales leave the dining room for a brief moment, but didn’t notice where he went. She claims nothing out of the ordinary happened while she was in the parlor, but she saw Victor leave the Dining Room breifly", "She is an older maid in the Ainsworth house"));
+        result.add(new Human("Isabel Moore", "Claims she was in the kitchen, cleaning up dishes and preparing a late-night snack. She didn’t see the chef leave the kitchen at any point during the night.", "Isabel has always been quiet"));
+    return result;
     }
-
-    if (room.equals("Dining Room")) {
-        // Inspecting props in the Dining Room
-        for (int i = 0; i < propsR2.size(); i++) {
-            if (propsR2.get(i) == p) {
-                return "Prop found: " + propsR2.get(i).getName() +
-                       " - " + propsR2.get(i).inspect();
-            }
-        }
-        return "There is no relevant prop to inspect in the Dining Room.";
+    public ArrayList<Prop> setPropsR1(){
+        ArrayList<Prop> result = new ArrayList<>();
+        result.add(new Prop("Teacup Arrangement", "Dining Room", "There is 1 teacup near the heiress's plate, and everyone else has a wineglass"));
+        result.add(new Prop("Chair Arrangment", "Dining Room", "One chair is oddly out of place in a otherwise well kept room. Almost as if someone abruptly got up"));
+        result.add(new Prop("Napkin", "Dining Room", "The Heiress's napkin smells of almonds"));
+   return result;
     }
+    public String interrogate(String hi){
+        if(hi.equals(getMurd().getName())){
+        return "This is " + getMurd().getName() + "\n" + "This is their backstory: " + getMurd().getBackstory() + "\n" + "This is their alibi: " + getMurd().getAlibi();
+    }
+    for(int i =0; i<humansR2.size();i++){
+        if(humansR2.get(i).getName().equals(hi)){
+                return "This is " + humansR2.get(i).getName() + "\n" + "This is their backstory:" + humansR2.get(i).getBackstory() + "\n" + "This is their alibi" + humansR2.get(i).getAlibi();
 
-    return "Prop not found";
+        }
+    }
+    for(int i =0; i<getHumansR1().size();i++){
+        if(getHumansR1().get(i).getName().equals(hi)){
+                return "This is " + getHumansR1().get(i).getName() + "\n" + "This is their backstory:" + getHumansR1().get(i).getBackstory() + "\n" + "This is their alibi" + getHumansR1().get(i).getAlibi();
+        }
+    }
+    return"Oops! No backstory found!";}
+public ArrayList<Prop> setPropsR2(){
+    ArrayList<Prop> result = new ArrayList<>();
+    result.add(new Prop("Sugar Jar", "Kitchen", "The sugar jar is left ajar, and upon closer inspection does not smell sweet, but rather almondy"));
+    result.add(new Prop("Trash Can", "Kitchen", "The trash can has a rag that is hastily bleached"));
+    result.add(new Prop("Sink", "Kitchen", "The teapot is in the sink, melting a little"));
+    result.add(new Prop("Oven", "Kitchen", "The Chef's oven timer is still on"));
+    return result;
+}
+public String inspectProp(int a){
+    super.inspectProp(a);
+    return "This prop is in the Dining Room";
+}
+public String inspectProp2(int a){
+        return propsR2.get(a-1).inspect() + "This prop is in the Kitchen";
+
 }
 }
