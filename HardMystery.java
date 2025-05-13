@@ -39,9 +39,9 @@ public class HardMystery extends Mystery{
 public String inspectProp(String room, Prop p) {
     if (room.equals("Ballroom")) {
         // Inspecting props in the Ballroom
-        for (int i = 0; i < super.getPropsR1().size(); i++) {
-            if (super.getPropsR1().get(i) == p) {
-                return "Prop found: " + super.getPropsR1().get(i).inspect();
+        for (int i = 0; i < super.returnPropsR1().size(); i++) {
+            if (super.returnPropsR1().get(i) == p) {
+                return "Prop found: " + super.returnPropsR1().get(i).inspect();
             }
         }
         return "There is no relevant prop to inspect in the Ballroom.";

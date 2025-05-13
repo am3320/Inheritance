@@ -1,0 +1,12 @@
+// import java.util.ArrayList;
+
+// public class EasyMystery extends Mystery{
+//     private Phone iphone;
+
+//     public EasyMystery(){
+    
+//     }
+//     //hello world
+
+    
+// }
