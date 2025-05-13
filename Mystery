@@ -22,7 +22,7 @@ public Mystery() {
       Human butler = new Human ("Elias Graves", "", "The Grave Family has been working for the Ainsworth family for several generations, through thick and thin");
         Human chef = new Human("Gustave Morales", "", "Gustave Morale, famous chef, was all too happy to be the Ainsworth family chef upon seeing the large staff and kitchen");
    ArrayList<Human> humans = new ArrayList<>();
-    if (murderer.getName().equals("Victor Hales")){
+    if (murderer.getName().equals("Victor Hale")){
       humans.add(murderer);
       humans.add(chef);
       humans.add(butler);
