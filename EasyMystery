@@ -4,9 +4,28 @@ public class EasyMystery extends Mystery{
     private Phone iphone;
 
     public EasyMystery(){
-    
+        iphone=setPhone();
     }
     
+    public Phone setPhone(){
+                    ArrayList<String> hints = new ArrayList<>();
+
+        if(getMurd().getName().equals("Victor Hales")){
+      hints.add("A witness reports hearing a heated argument between Victor Hale and the Heiress an hour before the party, about her decision to cut him out of her will.");
+      hints.add("A cufflink with the initials 'V.H.' was found near the Heiress's plate.");
+      hints.add("Victor Hale was seen lurking around the kitchen area just before the Heiress’s death, even though he was not supposed to be there.");
+        }
+        else if(getMurd().getName().equals("Elias Graves")){
+      hints.add("A thread unravels when it is acted upon");
+
+        }
+        else{
+            hints.add("Poison just interacts with certain surfaces");
+            hints.add("The chef has always worn musky wood perfume");
+        }
+        Phone hi = new Phone(hints, 2);
+        return hi;
+    }
 
     
 }
