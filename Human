@@ -2,17 +2,17 @@ public class Human {
     private String name;
     private String alibi;
     private String backstory;
-    private String role;  // Role 
+
 
     public Human(){
         
     }
     
-    public Human(String name, String alibi, String backstory, String role) {
+    public Human(String name, String alibi, String backstory) {
        this.name=name;
         this.alibi = alibi;
         this.backstory = backstory;
-        this.role=role;
+      
     
     }
 
@@ -27,16 +27,6 @@ public class Human {
     public String getBackstory() {
         return backstory;
     }
-    public String getRole(){
-        return role;
-    }
-
-   
-   
     
-
-    public void describe() {
-        System.out.println("Alibi: " + alibi);
-        System.out.println("Backstory: " + backstory);
-    }
+   
 }
