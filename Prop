@@ -14,7 +14,7 @@ public class Prop {
     // Method to inspect the prop
     public String inspect() {
        
-            return "This prop is a" + name + "here is more about it: " + description;
+            return "This prop is a " + name + "\n" + "Here is more about it: " + description;
        
     }
 
