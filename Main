@@ -6,11 +6,47 @@ import java.util.Scanner;
 public class Main {
    public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
-    System.out.println("Welcome, dear player. Are you in for a difficult game today? \nEnter 1 to play easy mode \nEnter 2 to play hard mode");
-    int r = sc.nextInt();
-    //if the player wants easy mode
-    if(r==1){
+    Boolean valid = false;
+
     
+    System.out.println("Welcome, dear player. Are you in for a difficult game today? \nEnter 1 to play easy mode \nEnter 2 to play hard mode (So hard you can only play it once)");
+            int r = 0;
+
+    while (!valid) {
+    try {
+      r=sc.nextInt();
+        if (r == 1 || r == 2) {
+            valid = true; // Valid input
+        } else {
+            System.out.println("Whoops! That's not a valid option. Enter 1 or 2.");
+        }
+    } catch (InputMismatchException e) {
+        System.out.println("Whoops! That's not a valid option. Please enter a number (1 or 2).");
+        sc.next(); // clear invalid input
+    }
+}
+   valid=false;
+//if the player wants easy mode
+  if(r==1){
+    System.out.println("    XXXXXXXXXXXXXXXXXXX                                  \n" + //
+                        "   X                  XXX                                \n" + //
+                        "   X                 X   X       XXXXXXXXXXXXXXXXXXXXXXXX\n" + //
+                        "  X                  X    XX     X  Invitation to the   X\n" + //
+                        " X                  X       X    X Annual Murdough PartyX\n" + //
+                        " X                 X         X   X----------------------X\n" + //
+                        "X                 X           XX XDear Ms._____, you areX\n" + //
+                        "XXXXXXXXXX        X            XXXinvited to the Murdough\n" + //
+                        " X        XXXXXXXX           XX  X        Party!        X\n" + //
+                        "  X                       XXX    X                      s\n" + //
+                        "   X                    XX       X   Congratulations!   X\n" + //
+                        "    X                XXX         X                      X\n" + //
+                        "     X            XXX            X                      X\n" + //
+                        "      X         XX               X                      X\n" + //
+                        "       X     XXX                 X Time: Saturday, 20:00X\n" + //
+                        "        X  XX                    X XXXXXXXXXXXXXXXXXXXX X\n" + //
+                        "         XX                      X                      X\n" + //
+                        "                                 XXXXXXXXXXXXXXXXXXXXXXXX");
+        delay(2);
     System.out.println("Clarissa Ainsworth's Invitation to the Dinner Party:");
     System.out.println("--------------------------------------------------------");
     System.out.println("Dear Esteemed Guests,");
@@ -21,9 +57,81 @@ public class Main {
     System.out.println("- Chef Gustav Morel");
     System.out.println("I look forward to a pleasant evening.\nSincerely, Clarissa Ainsworth Westmore\n");
     System.out.println("Doctor, will you be attending? \nEnter 1 if you will, 2 if you will not");
-    r = sc.nextInt();
+    while (!valid) {
+    try {
+        r = sc.nextInt();
+        if (r == 1 || r == 2) {
+            valid = true; // Valid input
+        } else {
+            System.out.println("Whoops! That's not a valid option. Enter 1 or 2.");
+        }
+    } catch (InputMismatchException e) {
+        System.out.println("Whoops! That's not a valid option. Please enter a number (1 or 2).");
+        sc.next(); 
+    }
+} 
+    valid= false;
     if(r==2){
-      System.out.println("You made the right decision: you wake up the next morning and turn on the news, to find the Heiress murdered in coldblood by an anonymous attendee of the very same party");
+      System.out.println("You decide not to open the letter after taking in a good look.");
+        System.out.println("You decide to throw it away after seeing who it came from.");
+        delay(1);
+        flushScreen();
+        System.out.println("~~~~~~~~~~~~~~~~                                                                \n" + //
+                        "~Sunday Night~                                                                \n" + //
+                        "~~~~~~~~~~~~~~~~");
+        System.out.println("Throughout the day, you feel a draw towards the letter.");
+        System.out.println("Despite this, you continue through your mundane work, diagnosing patients and recommending treatments");
+        System.out.println("Once you arrive home after a tiring day of work, you turn on the tv...");
+        delay(1);
+        flushScreen();
+        System.out.println("      X                                                                  \n" + //
+                        "    X   X         XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX            \n" + //
+                        " XXXXXXXXXXX      XX                                       XX            \n" + //
+                        " XXXXXXXXXXX      XX  XXXXXXXXXXXX           XXXXXXXXXXXX  XX            \n" + //
+                        " XX       XX      XX  X  XXXXXX  X           XXXXXXXXXXXX  XX            \n" + //
+                        " XX XXXXX XX      XX  X X      X X           XX X   X  XX  XX            \n" + //
+                        " XX XX XX XX      XX  X          X           X    X     X  XX            \n" + //
+                        " XX XXXXX XX      XX  XXXXXXXXXXXX           XXXXXXXXXXXX  XX            \n" + //
+                        " XXXXXXXXXXX      XX    X      X               X      X    XX            \n" + //
+                        " XXXXXXXXXXX      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX            \n" + //
+                        "                  XXBreaking News: Murder in Murdough ManorXX            \n" + //
+                        "                  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX            \n" + //
+                        "                  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX            \n" + //
+                        "                                XxxxxxxxxxxxxxxX                         \n" + //
+                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+        delay(2);
+        System.out.println("With the name of your previous best friend's displayed, you sit there in shock");
+        delay(1);
+        System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" + //
+                        "X        The Jennyton Town Times            X\n" + //
+                        "X        -----------------------            X\n" + //
+                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" + //
+                        "X     XXX     XPolice Reports no survivor.  X\n" + //
+                        "X   XX   XX   XSuspects foul play. Murder   X\n" + //
+                        "X XXXXXXXXXXX Xweapon unidentified. Motive  X\n" + //
+                        "X X X     X X Xunclear. Exercise caution as X\n" + //
+                        "X X  XXXXX  X XMurderer could still be out  X\n" + //
+                        "XXXXXXXXXXXXXXXthere.                       X\n" + //
+                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" + //
+                        "XOn Sunday night, after                   X\n" + //
+                        "Xpolice were called to   X    XXXXXXXXXX    X\n" + //
+                        "Xperform a wellness check.    X X    X X    X\n" + //
+                        "XA horrifying seen was   X    X  XXXX  X    X\n" + //
+                        "Xdiscovered. Victims: Mr.X    X XXXXXX X    X\n" + //
+                        "XHales. , Ms.Ainsworth. ,X    XXXXXXXXXX    X\n" + //
+                        "XChef Gustave, and Mr.   X     X     X      X\n" + //
+                        "XElias Graves.           X     X     X      X\n" + //
+                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" + //
+                        "\n" + //
+                        "");
+        delay(2);
+        System.out.println("The newspaper falls out of your hands. The possibility that you could have died as well sends a chill down your spine.");
+        System.out.println("Despite this, a morbid sense of curiosity continues to haunt you.");
+        delay(1);
+        System.out.println("Police were unable to solve the case, and now the party at Murdough manor will forever remain a mystery yet to be solved...");
+        delay(2);
+        flushScreen();
+        System.exit(0);
     }
     else if(r==1){
       flushScreen();
@@ -33,23 +141,27 @@ public class Main {
       delay(1);
       System.out.println("You are now at the Heiress's mansion");
       delay(1);
-      System.out.println("Shivers trickle down your spine as you pass by the memorial: to all the Ainsworth deceased.");
+      flushScreen();
+      System.out.println("Shivers trickle down your spine as you pass by a memorial: to all the Ainsworth deceased.");
       delay(3);
+      flushScreen();
       System.out.println("An engine revs behind you and you turn around, shocked to see a dark red " +
         getRandomString(new String[] {"Rolls-Royce Droptail", "Pininfarina B95", "Mercedes-Benz 300 SLR"}) + " behind you, and the businessman emerging from the car's driver's seat");
-      System.out.println(new String[] {"You nodded appreciatively at his ride", "You raised your eyebrows at the car and the businessman chuckled"});
+      System.out.println(getRandomString(new String[] {"You nodded appreciatively at his ride", "You raised your eyebrows at the car and the businessman chuckled"}));
       System.out.println("You walked inside together, your eyes wandering on the lavish displays of luxury");
       delay(5);
       flushScreen();
       System.out.println("You sit down for dinner, reminiscing over all the memories you had with these people in college. " +
         "You knew Gustave worked for Clarissa now, although according to what she told you, his tantrums had not ceased, and in exchange for the good food, she had to deal with him now");
       System.out.println("The dinner was great, but the sinking feeling in your stomach worsened when");
-      delay(1);
       delay(2);
+      flushScreen();
       System.out.println("the lights flickered off, leaving everyone in a panic. You heard dishes fall off the table, and then chaos erupted.");
       delay(2);
+      flushScreen();
       System.out.println("You heard the butler enter the room, his calm voice cutting through the madness. He said, \"It was likely a maid who brushed past the sensitive switch\"");
       delay(4);
+      flushScreen();
       System.out.println("You almost wish the butler hadn't turned on the lights, as now the stilled body of the Heiress was visible, along with her smashed wine glass");
       delay(3);
       flushScreen();
@@ -72,20 +184,35 @@ public class Main {
       System.out.println("A rush of revenge fills your chest as you swear to the company that you will solve the murder, if it's the last thing you do");
       System.out.println("Buckle in doctor, it's about to be a long ride.");
       flushScreen();
-            EasyMystery easyGame = new EasyMystery();
-
-      
+       EasyMystery easyGame = new EasyMystery();
       boolean guessed = false;
       while(!guessed){
-        System.out.println("Would you like \n1: inspect a prop, \n2: guess who the murderer is? " +
+        System.out.println("Would you like \n 1: inspect a prop \n 2: Recall someone's backstory \n 3: guess who the murderer is? \n 4: exit game" +
             "\nRemember, since you chose easy level, you will get a steady flow of hints until you run out.");
-        r = sc.nextInt();
+        while (!valid) {
+          try {
+          r = sc.nextInt();
+          if (r == 1 || r == 2 || r==3 || r==4) {
+            valid = true; 
+          } 
+          else {
+            System.out.println("Whoops! That's not a valid option. Enter 1 or 2 or 3.");
+          }
+        }
+           catch (InputMismatchException e) {
+        System.out.println("Whoops! That's not a valid option. Please enter a number (1 or 2 or 3).");
+        sc.next(); 
+           }
+    }
         if(r==1){
            easyGame.displayPropsR1();
             r= sc.nextInt();
             System.out.println(easyGame.inspectProp(r));
           } 
         else if(r==2){
+
+        }
+          else if(r==3){
             System.out.println("Who is the murderer?");
             System.out.println("Is it\n1: the Businessman, Victor\n2: the Chef, Gustave\n3: the Butler, Elias");
             r = sc.nextInt();
@@ -102,16 +229,164 @@ public class Main {
             }
             else{System.out.println("Incorrect, keep going!"); }       
           }
+        else if(r==4){
+        System.out.println("Thank you for playing");
+        System.exit(0);
       }
-      System.out.println("Congratulations, thank you for playing");
+      }
+      System.out.println("Thank you for playing");
+      System.exit(0);
+
     }
   }
-   if(r==2){
+else{
+  flushScreen();;
+  System.out.println("Clarissa Ainsworth, cold and poised as ever, was hosting one of her infamous dinner parties. But tonight, her glass clattered to the floor as she slumped forward—dead before dessert.");
+    delay(3);
+  flushScreen();  
+        System.out.println("There were seven people in the house when it happened. Every one of them has an alibi. Only one is lying.");
+        delay(3);
+
+        flushScreen();  
+
+        System.out.println("You are a doctor, but tonight you must be a detective.");
+        delay(3);
+
+        flushScreen(); 
+        System.out.println("Wealthy, widowed, and ruthless in business. She made enemies easier than she made friends. Tonight, she invited only a handful of her closest \"associates\" and staff to a formal dinner. She never made it to the main course.");
+        delay(4);
+        flushScreen();
+        System.out.println("You recap all of this to yourself as you stand in the dining room amongst the chaos.");
+        delay(2);
+        flushScreen();
+        System.out.println("Suddenly, everything is too much so you stomp your foot, yelling, \"QUIET!\"");
+        delay(2);
+        flushScreen();
+        System.out.println("Now that you were over the initial shock, you start commanding people to stay where they are. Its up to you to solve this mystery");
+        delay(2);
+        HardMystery theGame = new HardMystery();
+        boolean solved = false;
+        while(!solved){
+        System.out.println("You know what options you have: \n 1. Interrogate someone \n 2. Inspect a prop in the Dining Hall \n 3. Inspect a prop in the kitchen \n 4. Guess who the murderer is \n 5. Exit the game");
+        System.out.println("So Doctor, what if your next step?");
+        try {
+      r=sc.nextInt();
+        if (r == 1 || r == 2 || r==3 || r==4 || r==5) {
+            valid = true; // Valid inut
+        } else {
+            System.out.println("Whoops! That's not a valid option. Enter a number from 1-5");
+        }
+    } catch (InputMismatchException e) {
+        System.out.println("Whoops! That's not a valid option. Please enter a number from 1-5");
+        sc.next(); // cllear invalid input
+    }
+    if(r==5){
+      System.out.println("Thanks for playing!");
+      System.exit(0);
+    }
     
-   }
+   else if(r==4){
+      System.out.println("Who is the murderer? 1. Victor Hales, 2. Elias Graves, 3. Gustave Morales, 4. Isabel Moore, 5. Catherine \"Cat\" Rivers, 6. Lydia Cartwright");
+       try {
+      r=sc.nextInt();
+      if (r == 1 || r == 2 || r==3 || r==4 || r==5) {
+            valid = true; // Valid inut
+        } else {
+            System.out.println("Whoops! That's not a valid option. Enter a number from 1-6");
+        }
+    } catch (InputMismatchException e) {
+        System.out.println("Whoops! That's not a valid option. Please enter a number from 1-6");
+        sc.next(); // cllear invalid input
+    }
+    if(r!=4){
+      System.out.println("Thats not the murderer, keep trying!");
+    }
+    else{
+      System.out.println("Thats correct, good job!");
+            System.exit(0);
+
+    }
+  }
+  else if(r==3){
+    System.out.println("Which of props 1-4 would you like to inspect?");
+      try {
+      r=sc.nextInt();
+        if (r == 1 || r == 2 || r==3 || r==4) {
+            valid = true; // Valid inut
+        } else {
+            System.out.println("Whoops! That's not a valid option. Enter a number from 1-4");
+        }
+    } catch (InputMismatchException e) {
+        System.out.println("Whoops! That's not a valid option. Please enter a number from 1-4");
+        sc.next(); // cllear invalid input
+    }
+    theGame.inspectProp2(r);
+
+  }
+ else if(r==2){
+    System.out.println("Which of props 1-3 would you like to inspect?");
+      try {
+      r=sc.nextInt();
+        if (r == 1 || r == 2 || r==3) {
+            valid = true; // Valid inut
+        } else {
+            System.out.println("Whoops! That's not a valid option. Enter a number from 1-3");
+        }
+    } catch (InputMismatchException e) {
+        System.out.println("Whoops! That's not a valid option. Please enter a number from 1-3");
+        sc.next(); // cllear invalid input
+    }
+    theGame.inspectProp(r);
+
+  }
+else if(r==1){
+  String print = "You can interrogate: 1. Victor Hales, 2. Elias Graves, 3. Gustave Morales, 4. Isabel Moore, 5. Catherine \"Cat\" Rivers, 6. Lydia Cartwright";
+  System.out.println("You can interrogate: 1. Victor Hales, 2. Elias Graves, 3. Gustave Morales, 4. Isabel Moore, 5. Catherine \"Cat\" Rivers, 6. Lydia Cartwright");
+   try {
+      r=sc.nextInt();
+      if (r == 1 || r == 2 || r==3 || r==4 || r==5 || r==6) {
+            valid = true; // Valid inut
+        } else {
+            System.out.println("Whoops! That's not a valid option. Enter a number from 1-6");
+        }
+    } catch (InputMismatchException e) {
+        System.out.println("Whoops! That's not a valid option. Please enter a number from 1-6");
+        sc.next(); // cllear invalid input
+    }
+if(r==6){
+  System.out.println(theGame.interrogate("Lydia Cartwright"));
+    delay(4);
+
 }
-   
-   
+if(r==5){
+  System.out.println(theGame.interrogate("Catherine \"Cat\" Rivers"));
+  delay(4);
+}
+if(r==4){
+  System.out.println(theGame.interrogate("Isabel Moore"));
+    delay(4);
+
+}
+if(r==3){
+  System.out.println(theGame.interrogate("Gustave Morales"));
+    delay(4);
+
+}
+  if(r==2){
+ System.out.println(theGame.interrogate("Elias Graves"));
+   delay(4);
+
+}
+if(r==1){
+ System.out.println(theGame.interrogate("Victor Hales"));
+   delay(4);
+
+}
+}
+  }
+}
+}  
+
 
    public static void flushScreen(){
       System.out.print("\033[H\033[2J");
@@ -128,7 +403,7 @@ public class Main {
    }
 
    public static String getRandomString(String[] array) {
-      Random rand = new Random();
-      return array[rand.nextInt(array.length)];
-   }
+        int index = (int) (Math.random() * array.length); 
+        return array[index];  // Return the random string from the array
+    }
 }
