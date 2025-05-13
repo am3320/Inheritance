@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Main {
    public static void main(String[] args) {
+    flushScreen();
     Scanner sc = new Scanner(System.in);
     Boolean valid = false;
 
@@ -54,7 +55,7 @@ public class Main {
     System.out.println("The party will be held at my residence, and your presence would honor me greatly.");
     System.out.println("The following will attend:");
     System.out.println("- Businessman Victor Hale");
-    System.out.println("- Chef Gustav Morel");
+    System.out.println("- Chef Gustave Morales");
     System.out.println("I look forward to a pleasant evening.\nSincerely, Clarissa Ainsworth Westmore\n");
     System.out.println("Doctor, will you be attending? \nEnter 1 if you will, 2 if you will not");
     while (!valid) {
@@ -138,6 +139,26 @@ public class Main {
       System.out.println("Hopefully you made the right decision, Doctor");
       delay(1);
       flushScreen();
+      delay(1);
+       System.out.println("~~~~~~~~~~~~~~~~                                                                \n" + //
+                        "~Murdough Manor~                                                                \n" + //
+                        "~~~~~~~~~~~~~~~~    XX                                     XX                   \n" + //
+                        "                  XX  XX   XXXXXXXXXXXXXXXXXXXXXXXXXXX  XXX  XX                 \n" + //
+                        "                XX       XX                           XXX      X                \n" + //
+                        "              XX          X                          X          XX              \n" + //
+                        "            XX             X                        XX            X             \n" + //
+                        "          XX                XX                    XX               XX           \n" + //
+                        "          XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX          \n" + //
+                        "          X X    X   X    X X XXXXXXX     XXXXXXX X X     X  X     X X          \n" + //
+                        "          X XXXXXX   XXXXXX X X     X     X     X X XXXXXXX  XXXXXXX X          \n" + //
+                        "          X XX  XX   X   XX X X     X     X     X X XX   XX  XX   XX X          \n" + //
+                        "          X XX  XX   X   XX X XXXXXXX     XXXXXXX X XX   XX  XX   XX X          \n" + //
+                        "        XXX XX  XX   X   XX X      XXXXXXXXXX     X XX   XX  XX   XX XXX        \n" + //
+                        "     XXX  X XXXXXX   XXXXXX X      X   X    X     X XXXXXXX  XXXXXXX X  XXXX    \n" + //
+                        "XXXXX     X X    X   X    X X      X   X    X     X X     X  X     X X      XXXX\n" + //
+                        "   X      X X    X   X    X X  XXXXXXXXXXXXXXXXXXXX X     X  X     X X       X  \n" + //
+                        "   X      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX       X  \n" + //
+                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
       delay(1);
       System.out.println("You are now at the Heiress's mansion");
       delay(1);
@@ -286,7 +307,9 @@ else{
     }
     
    else if(r==4){
+   valid=false;
       System.out.println("Who is the murderer? 1. Victor Hales, 2. Elias Graves, 3. Gustave Morales, 4. Isabel Moore, 5. Catherine \"Cat\" Rivers, 6. Lydia Cartwright");
+      while(!valid){
        try {
       r=sc.nextInt();
       if (r == 1 || r == 2 || r==3 || r==4 || r==5) {
@@ -300,12 +323,14 @@ else{
     }
     if(r!=4){
       System.out.println("Thats not the murderer, keep trying!");
+      delay(4);
     }
     else{
       System.out.println("Thats correct, good job!");
             System.exit(0);
 
     }
+  }
   }
   else if(r==3){
     System.out.println("Which of props 1-4 would you like to inspect?");
@@ -320,8 +345,8 @@ else{
         System.out.println("Whoops! That's not a valid option. Please enter a number from 1-4");
         sc.next(); // cllear invalid input
     }
-    theGame.inspectProp2(r);
-
+    System.out.println(theGame.inspectProp2(r));
+delay(6);
   }
  else if(r==2){
     System.out.println("Which of props 1-3 would you like to inspect?");
@@ -336,8 +361,8 @@ else{
         System.out.println("Whoops! That's not a valid option. Please enter a number from 1-3");
         sc.next(); // cllear invalid input
     }
-    theGame.inspectProp(r);
-
+    System.out.println(theGame.inspectProp(r));
+    delay(6);
   }
 else if(r==1){
   String print = "You can interrogate: 1. Victor Hales, 2. Elias Graves, 3. Gustave Morales, 4. Isabel Moore, 5. Catherine \"Cat\" Rivers, 6. Lydia Cartwright";
